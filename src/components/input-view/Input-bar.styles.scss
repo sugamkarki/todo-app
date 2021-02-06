@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  flex: 0.2;
+  justify-content: space-around;
+  background-color: #dcdad0;
+  // margin:20px 40px;
+}
+.input {
+  margin: 20px 0 10px 0;
+  display: flex;
+  justify-content: space-around;
+  justify-items: center;
+}
+.input__textField {
+}

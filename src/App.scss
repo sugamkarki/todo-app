@@ -1,0 +1,15 @@
+.container {
+  min-height: 100vh;
+  height: fit-content;
+  background-color: #adb5bd;
+  display: grid;
+  place-items: center;
+  .card {
+    min-height: 80vh;
+    height: fit-content;
+
+    width: 80vw;
+    background-color: #ced4da;
+    padding: 20px 40px;
+  }
+}
