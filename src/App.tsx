@@ -14,6 +14,7 @@ function App() {
     const fetchedData = await db.collection("todos").get();
     // console.log(data.docs)
     setData(
+      // @ts-ignore
       fetchedData.docs.map((doc) => {
         return { ...doc.data(), documentId: doc.id };
       })
@@ -50,9 +51,13 @@ function App() {
   };
   const changeCompletedStatus = (id) => {
     // console.log(id);
+      // @ts-ignore
+
     let selectedTodo = data.filter((item) => item.id === id);
     //  selectedTodo.completed
     // console.log(selectedTodo[0])
+      // @ts-ignore
+
     const filteredData = data.filter((item) => item.id !== id);
     //@ts-ignore
     selectedTodo = selectedTodo[0];
@@ -66,6 +71,7 @@ function App() {
     ];
     const db = firebase.firestore();
     db.collection("todos")
+      // @ts-ignore
       .doc(selectedTodo.documentId)
       .update({ completed: true });
       // fetchData();
@@ -78,11 +84,15 @@ function App() {
     // console.log(id)
     // const newData = data.filter((item) => item.id !== id);
     // setData(newData);
+    
+
+      //@ts-ignore
     let selectedTodo = data.filter((item) => item.id === id);
     const db=firebase.firestore();
     // console.log(selectedTodo)
     //@ts-ignore
     selectedTodo=selectedTodo[0];
+      //@ts-ignore
     db.collection('todos').doc(selectedTodo.documentId).delete();
   };
   return (
