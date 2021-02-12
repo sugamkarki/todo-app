@@ -24,12 +24,12 @@ function App() {
     fetchData();
   }, []);
   useEffect(() => {
-  //  firebase.collection
-  const db=firebase.firestore();
-    db.collection('todos').onSnapshot(()=>{
+    //  firebase.collection
+    const db = firebase.firestore();
+    db.collection("todos").onSnapshot(() => {
       fetchData();
-    })
-  }, [])
+    });
+  }, []);
   const clickHandler = (e) => {
     // console.log(data);
     e.preventDefault();
@@ -51,12 +51,12 @@ function App() {
   };
   const changeCompletedStatus = (id) => {
     // console.log(id);
-      // @ts-ignore
+    // @ts-ignore
 
     let selectedTodo = data.filter((item) => item.id === id);
     //  selectedTodo.completed
     // console.log(selectedTodo[0])
-      // @ts-ignore
+    // @ts-ignore
 
     const filteredData = data.filter((item) => item.id !== id);
     //@ts-ignore
@@ -74,7 +74,7 @@ function App() {
       // @ts-ignore
       .doc(selectedTodo.documentId)
       .update({ completed: true });
-      // fetchData();
+    // fetchData();
     // db.collection("todos").set(newData);
     //@ts-ignore
     setData(newData);
@@ -84,16 +84,15 @@ function App() {
     // console.log(id)
     // const newData = data.filter((item) => item.id !== id);
     // setData(newData);
-    
 
-      //@ts-ignore
+    //@ts-ignore
     let selectedTodo = data.filter((item) => item.id === id);
-    const db=firebase.firestore();
+    const db = firebase.firestore();
     // console.log(selectedTodo)
     //@ts-ignore
-    selectedTodo=selectedTodo[0];
-      //@ts-ignore
-    db.collection('todos').doc(selectedTodo.documentId).delete();
+    selectedTodo = selectedTodo[0];
+    //@ts-ignore
+    db.collection("todos").doc(selectedTodo.documentId).delete();
   };
   return (
     <div className="container">
